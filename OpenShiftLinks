@@ -37,8 +37,8 @@ If for a component (A) to be functional there are let's say three other componen
 All of those have to be successful for component A to be ready to do the job. Otherwise A would be considered unhealty. For liveness probe of componet A if A is 
 unhealthy for a reason where restart will help (like breaking deadlock, high resource consumptions, service account change is reflected in secret but the component 
 did not read it yet leading to communication failure etc.) in such a case failure to have Ok response in liveness will cause component A restart. Component A restart
-will read the change i secret. 
-prove would restart the container  
+will read the change in secret and the intercomponent communication will be happy/successful again. :D  
+
   
 
 
