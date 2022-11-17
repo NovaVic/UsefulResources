@@ -17,5 +17,30 @@ https://learn.microsoft.com/en-us/aspnet/core/host-and-deploy/health-checks?view
 
 https://learn.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/monitor-app-health
 
+Readiness probe - container is available /ready to take request
+Liveness probe -container is unresponsive due to blocking/deadlock whateer reason. If this probe fails then the container will be automatically restarted. 
+
+/hc or equivalent health endpoint will call all health checks registered. It would not return healthy unless all health check endpoints are returning HTTP status 200
+and health indicator string.
+
+If initialization and startup of a container let's say takes 20 seconds then the readiness probe initial delay time should be more than 20 seconds.
+Also if if it takes the container 20 seconds to be ready let's say because it has to do a log task then liveness probe should be delayed accordingly. 
+This is to make sure that liveness failure is not restarting the container way too soon and there by disrupting the lengthy initialization process. 
+With too soon restart the system would try initialization over and over again without getting the chance to finish it.
+
+
+In OpenShift once we setup readiness and/or liveness check the health checks will be called on schedule and automatically without any extra effort.
+This assumes you setup health check in your application, exposed the healthcheck endpoints and then deploymentConfig in OpenShift has those in path spec for the
+readyness and or liveness probes. In other system an orchestrator (or different component) for multiple microservices would need to check the health.
+
+If for a component (A) to be functional there are let's say three other components (B, C, D) those have to be healthy then we can add minimum three healthchecks.
+All of those have to be successful for component A to be ready to do the job. Otherwise A would be considered unhealty. For liveness probe of componet A if A is 
+unhealthy for a reason where restart will help (like breaking deadlock, high resource consumptions, service account change is reflected in secret but the component 
+did not read it yet leading to communication failure etc.) in such a case failure to have Ok response in liveness will cause component A restart. Component A restart
+will read the change i secret. 
+prove would restart the container  
+  
+
+
 
 
