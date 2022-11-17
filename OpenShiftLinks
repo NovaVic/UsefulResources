@@ -7,4 +7,11 @@ https://cookbook.openshift.org/logging-monitoring-and-debugging/how-do-i-debug-a
 https://kubernetes.io/docs/tasks/debug/debug-application/debug-running-pod/ using kubectl
 
 
+Readiness and liveness probes:
+
+https://www.baeldung.com/ops/openshift-health-checks
+https://developers.redhat.com/blog/2020/11/10/you-probably-need-liveness-and-readiness-probes
+
+
+
  
