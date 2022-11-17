@@ -40,7 +40,9 @@ did not read it yet leading to communication failure etc.) in such a case failur
 will read the change in secret and the intercomponent communication will be happy/successful again. :D  
 
   
-
+As for example if component A on OpenShift needs to be able to connect to MS Dynamics to be ready to serve requests in that case success (or failure) in that 
+connection can be used as an indicator of health. Just not to overload the dynamics system it was suggested by some team members to make the scanning frequency 
+like 30 minutes or so. We can always change that if that is a problem based on observation.    
 
 
 
