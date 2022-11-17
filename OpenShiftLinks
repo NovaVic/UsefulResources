@@ -1,0 +1,10 @@
+ Tekton Trigger: https://www.youtube.com/watch?v=NqHqVUTnqGk
+
+
+ Debug Containers in OpenShift:
+ 
+https://cookbook.openshift.org/logging-monitoring-and-debugging/how-do-i-debug-an-application-that-fails-to-start-up.html using OC
+https://kubernetes.io/docs/tasks/debug/debug-application/debug-running-pod/ using kubectl
+
+
+ 
