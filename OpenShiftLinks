@@ -56,6 +56,6 @@ Are both needed? Ideally yes.
 If let's say readiness is using subset of checks that liveness check uses then we can do something like 
 
 Scanning period for readiness as 2x and scanning period of liveness check as 1x that we common end point (in case there is one in both health checks)
-is being called every x unit of time assuming that is the desirable frequency.
+is being called every x unit of time assuming that is the desirable period/interval for probing.
 
  
