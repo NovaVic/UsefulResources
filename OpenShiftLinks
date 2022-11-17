@@ -48,3 +48,7 @@ like 30 minutes or so. We can always change that if that is a problem based on o
 replication counter specification are notstepping on each others' toes.
 
 
+Livness probe - kills container in case of unhealthy probe outcome
+Readiness probe - stops sending traffic to pod
+
+Are both needed? Ideally yes.
